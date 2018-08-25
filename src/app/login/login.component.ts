@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   onSubmit() { this.submitted = true; }
 
   login(res): void {
+
     if(res[0] != undefined && res[1] != undefined){
         console.log('ok')
       this.router.navigate(['/home']);

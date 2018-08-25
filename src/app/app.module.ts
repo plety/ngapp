@@ -12,6 +12,7 @@ import { AppRoutingModule }     from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { HomeComponent } from './home/home.component';
     MessagesComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    MenuComponent
   ],
   bootstrap: [ AppComponent ]
 })
