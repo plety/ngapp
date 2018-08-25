@@ -1,0 +1,32 @@
+<script src="../../../../universal/src/app/app.component.ts"></script>
+<div>
+  <h1>{{title}}</h1>
+  <h2>{{clickMessage}}</h2>
+  <button  (click)="onClickMe()">查看</button>
+  {{ name }}
+
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <input [(ngModel)]="person.name" name="first">
+      <input [(ngModel)]="person.pass" [ngModelOptions]="{standalone: true}">
+      <!--<input type="text" placeholder="用户名" [(ngModel)]="name" >-->
+      <!--<input type="text" placeholder="密码" [(ngModel)]="pass">-->
+      <button [disabled]="!form.form.valid" (click)="login([name,pass])">登录</button>
+    </form>
+    <input id="name" name="name" class="form-control"
+           required minlength="4" appForbiddenName="bob"
+           [(ngModel)]="person.cc" #name="ngModel" >
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+         class="alert alert-danger">
+      <div *ngIf="name.errors.required">
+        Name is required.
+      </div>
+      <div *ngIf="name.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="name.errors.forbiddenName">
+        Name cannot be Bob.
+      </div>
+    </div>
+  </div>
+</div>
